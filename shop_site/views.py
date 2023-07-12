@@ -4,15 +4,20 @@ from .models import *
 
 def index(request):
     rows = Slider.objects.all()
-
+    slidersCount = len(rows)
     context = {
-        'rows' : rows
+        'rows' : rows,
+        'buttons': range(slidersCount)
     }
 
     return render(request, "index.html", context)
 
 def about(request):
-    return render(request, "about.html")
+    rows = Brands.objects.all()
+    context = {
+        'rows' : rows,
+    }
+    return render(request, "about.html",context)
 
 def contact(request):
     return render(request, "contact.html")

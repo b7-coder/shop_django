@@ -127,9 +127,9 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+            {%for item in buttons%}
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="{{item}}" {%if item == buttons.0 %}class="active"{%endif%}></li>
+            {%endfor%}
         </ol>
         <div class="carousel-inner">
             {% for item in rows %}
@@ -142,7 +142,7 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1 text-success">{{item.title}}</h1>
-                                <h3 class="h2">Tiny and Perfect eCommerce Template</h3>
+                                
                                 <p>
                                    {{item.description}}
                                 </p>

@@ -217,18 +217,11 @@ https://templatemo.com/tm-559-zay-shop
                                     <!--First slide-->
                                     <div class="carousel-item active">
                                         <div class="row">
+                                            {%for item in rows%}
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_01.png'%}" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="{{item.image.url}}" alt="Brand Logo"></a>
                                             </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_02.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_03.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_04.png'%}" alt="Brand Logo"></a>
-                                            </div>
+                                            {%endfor%}
                                         </div>
                                     </div>
                                     <!--End First slide-->
