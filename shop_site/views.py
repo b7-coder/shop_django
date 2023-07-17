@@ -13,7 +13,7 @@ def index(request):
     return render(request, "index.html", context)
 
 def about(request):
-    rows = Brands.objects.all()
+    rows = BrandsLogo.objects.all()
     context = {
         'rows' : rows,
     }
@@ -27,6 +27,21 @@ def shop(request):
 
 def shopSingle(request):
     return render(request, "shop-single.html")
+
+from django.views.decorators.csrf import csrf_protect
+
+@csrf_protect
+def contactSaveFunc(request):
+
+    name = request.POST.get("name")
+    email = request.POST.get("email")
+    subject = request.POST.get('subject')
+    message = request.POST.get('message')
+
+    newRow = Contacts.objects.create(name = name, email = email, subject=subject, message=message)
+    newRow.save()
+
+    return contact(request)
 
 
 

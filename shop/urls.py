@@ -27,6 +27,7 @@ urlpatterns = [
     path('contact/', contact, name="contact"),
     path('shop/', shop, name="shop"),
     path('shopSingle/', shopSingle, name="shopSingle"),
+    path('contactsSend/', contactSaveFunc, name="contactsSend"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

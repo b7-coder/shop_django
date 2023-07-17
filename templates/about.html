@@ -215,54 +215,27 @@ https://templatemo.com/tm-559-zay-shop
                                 <div class="carousel-inner product-links-wap" role="listbox">
 
                                     <!--First slide-->
+                                    {%for item in rows%}
                                     <div class="carousel-item active">
                                         <div class="row">
-                                            {%for item in rows%}
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{{item.image.url}}" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="{{item.firstImage.url}}" alt="Brand Logo"></a>
                                             </div>
-                                            {%endfor%}
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="{{item.secondImage.url}}" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="{{item.thirdImage.url}}" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="{{item.fourthImage.url}}" alt="Brand Logo"></a>
+                                            </div>
                                         </div>
                                     </div>
+                                    {%endfor%}
                                     <!--End First slide-->
 
-                                    <!--Second slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_01.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_02.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_03.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_04.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Second slide-->
-
-                                    <!--Third slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_01.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_02.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_03.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="{% static 'assets/img/brand_04.png'%}" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Third slide-->
+                                   
 
                                 </div>
                                 <!--End Slides-->
