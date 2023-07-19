@@ -21,3 +21,44 @@ class BrandsLogo(models.Model):
     secondImage = models.ImageField()
     thirdImage = models.ImageField()
     fourthImage = models.ImageField()
+
+class Category(models.Model):
+    name = models.CharField(max_length=250)
+
+class ItemImages(models.Model):
+    image = models.ImageField()
+    gender_choices = [
+        ('М','Мужской'),
+        ('Ж',':Женский'),
+    ]
+    gender = models.CharField(
+        max_length=1,
+        choices= gender_choices,
+        default='М'
+    )
+
+class Cloth(models.Model):
+    gender_choices = [
+        ('М','Мужской'),
+        ('Ж',':Женский'),
+    ]
+    gender = models.CharField(
+        max_length=1,
+        choices= gender_choices,
+        default='М'
+    )
+    color = models.CharField(max_length=250)
+    size_choices = [
+        ('S','S'),
+        ('M','M'),
+        ('L','L'),
+        ('XL','XL')
+    ]
+    size = models.CharField(max_length=1,
+    choices=size_choices,
+    default='S'
+    )
+    price_manufacturer = models.FloatField()
+    price = models.FloatField()
+    categoryObject = models.ForeignKey(Category, on_delete=models.CASCADE)
+    imageObject = models.ForeignKey(ItemImages, on_delete=models.CASCADE)
