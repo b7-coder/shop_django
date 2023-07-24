@@ -23,10 +23,24 @@ def contact(request):
     return render(request, "contact.html")
 
 def shop(request):
-    return render(request, "shop.html")
+    rows = Cloth.objects.all()
+    context = {
+        'rows':rows
+    }
+    return render(request, "shop.html", context)
 
-def shopSingle(request):
-    return render(request, "shop-single.html")
+def shopSingle(request, id):
+    row = Cloth.objects.get(id = id)
+    images = ItemImages.objects.filter(clothObject = row)
+    # вам нужно отобразить конкретный товар на странице shop-single.html
+    # мы это делали когда работали с пустым шаблоном в другом мини проекте
+
+    context = {
+        'cloth':row,
+        'images':images
+    }
+
+    return render(request, "shop-single.html", context)
 
 from django.views.decorators.csrf import csrf_protect
 
