@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
@@ -23,10 +24,16 @@ def contact(request):
     return render(request, "contact.html")
 
 def shop(request):
-    rows = Cloth.objects.all()
+    allrows = Cloth.objects.all()
+    rows = Paginator(allrows, 3)
+    if request.GET.get('page'):
+        page = int(request.GET.get('page'))
+    else:
+        page = 1
     context = {
-        'rows':rows
-    }
+            'rows':rows.page(page),
+            'paginator': rows
+        }
     return render(request, "shop.html", context)
 
 def shopSingle(request, id):
