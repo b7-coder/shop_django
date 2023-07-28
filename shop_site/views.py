@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import *
-from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
@@ -23,6 +22,8 @@ def about(request):
 def contact(request):
     return render(request, "contact.html")
 
+from django.core.paginator import Paginator
+
 def shop(request):
     allrows = Cloth.objects.all()
     rows = Paginator(allrows, 3)
@@ -32,16 +33,15 @@ def shop(request):
         page = 1
     context = {
             'rows':rows.page(page),
-            'paginator': rows
+            'paginator': rows,
+            'page':page
         }
     return render(request, "shop.html", context)
 
 def shopSingle(request, id):
     row = Cloth.objects.get(id = id)
     images = ItemImages.objects.filter(clothObject = row)
-    # вам нужно отобразить конкретный товар на странице shop-single.html
-    # мы это делали когда работали с пустым шаблоном в другом мини проекте
-
+    
     context = {
         'cloth':row,
         'images':images

@@ -234,10 +234,9 @@ https://templatemo.com/tm-559-zay-shop
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         {% for btn in paginator.page_range %}
-                        <li class="page-item disabled">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="?page={{btn}}" tabindex="-1">{{btn}}</a>
+                        <li class="page-item ">
+                            <a class="page-link {% if btn == page %}active{% endif %} rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="?page={{btn}}" tabindex="-1">{{btn}}</a>
                         </li>
-                        <!-- active -->
                         {% endfor %}
                     </ul>
                 </div>

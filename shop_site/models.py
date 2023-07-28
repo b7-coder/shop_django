@@ -51,6 +51,8 @@ class Cloth(models.Model):
     price = models.FloatField()
     categoryObject = models.ForeignKey(Category, on_delete=models.CASCADE)
     mainImage = models.ImageField()
+    description = models.TextField()
+    brand = models.CharField(max_length=250)
 
 class ItemImages(models.Model):
     image = models.ImageField()
